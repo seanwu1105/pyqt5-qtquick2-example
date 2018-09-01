@@ -110,4 +110,4 @@ venv.bak/
 !.vscode/extensions.json
 
 # pyqt5 qtquick
-.qmlc
+*.qmlc

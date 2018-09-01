@@ -3,11 +3,13 @@ import QtQuick 2.11
 import QtQuick.Layouts 1.11
 import QtQuick.Controls 2.4
 // import QtQuick.Controls.Material 2.4
+// import QtQuick.Controls.Universal 2.4
+import QtCharts 2.0
 
 ApplicationWindow {
     visible: true
-    minimumHeight: 700
-    minimumWidth: 900
+    minimumHeight: 650
+    minimumWidth: 1500
     menuBar: MenuBar {
         Menu {
             title: "&File"
@@ -87,9 +89,9 @@ ApplicationWindow {
         anchors.fill: parent
         GridLayout {
             anchors.fill: parent
-            columns: 4
-            GroupBox {
-                Layout.fillWidth: true; Layout.fillHeight: true
+            flow: GridLayout.TopToBottom
+            rows: 2
+            CellBox {
                 title: "Buttons"
                 ColumnLayout {
                     anchors.fill: parent
@@ -99,27 +101,7 @@ ApplicationWindow {
                     RoundButton {text: "+"; Layout.alignment: Qt.AlignHCenter}
                 }
             }
-            GroupBox {
-                Layout.fillWidth: true; Layout.fillHeight: true
-                title: "Tabs"
-                TabBar {
-                    id: bar
-                    width: parent.width
-                    TabButton {text: "A"}
-                    TabButton {text: "B"}
-                    TabButton {text: "C"}
-                }
-                StackLayout {
-                    width: parent.width
-                    anchors.top: bar.bottom
-                    currentIndex: bar.currentIndex
-                    Label {padding: 10; text: "Page A"}
-                    Label {padding: 10; text: "Page B"}
-                    Label {padding: 10; text: "Page C"}
-                }
-            }
-            GroupBox {
-                Layout.fillWidth: true; Layout.fillHeight: true
+            CellBox {
                 title: "Radio Buttons"
                 ColumnLayout {
                     anchors.fill: parent
@@ -129,8 +111,7 @@ ApplicationWindow {
                     RadioButton {text: "Radio Button 4"}
                 }
             }
-            GroupBox {
-                Layout.fillWidth: true; Layout.fillHeight: true
+            CellBox {
                 title: "Check Boxes"
                 ColumnLayout {
                     anchors.fill: parent
@@ -158,8 +139,7 @@ ApplicationWindow {
                     }
                 }
             }
-            GroupBox {
-                Layout.fillWidth: true; Layout.fillHeight: true
+            CellBox {
                 title: "Progress Indicators"
                 ColumnLayout {
                     anchors.fill: parent
@@ -168,13 +148,27 @@ ApplicationWindow {
                         ToolTip.visible: hovered
                         ToolTip.text: "Busy Indicator"
                     }
-                    DelayButton {text: "Delay Button"; Layout.fillWidth: true; delay: 5000}
+                    DelayButton {text: "Delay Button"; Layout.fillWidth: true; delay: 3000}
                     ProgressBar {value: 0.6; Layout.fillWidth: true}
                     ProgressBar {indeterminate: true; Layout.fillWidth: true}
                 }
             }
-            GroupBox {
-                Layout.fillWidth: true; Layout.fillHeight: true
+            CellBox {
+                title: "ComboBoxes"
+                ColumnLayout {
+                    anchors.fill: parent
+                    ComboBox {model: ["Normal", "Second", "Third"]; Layout.fillWidth: true}
+                    ComboBox {model: ["Flat", "Second", "Third"]; Layout.fillWidth: true; flat: true}
+                    ComboBox {model: ["Editable", "Second", "Third"]; Layout.fillWidth: true; editable: true}
+                    ComboBox {
+                        model: 10
+                        editable: true
+                        validator: IntValidator {top: 9; bottom: 0}
+                        Layout.fillWidth: true
+                    }
+                }
+            }
+            CellBox {
                 title: "Range Controllers"
                 ColumnLayout {
                     anchors.fill: parent
@@ -203,28 +197,11 @@ ApplicationWindow {
                     }
                 }
             }
-            GroupBox {
-                Layout.fillWidth: true; Layout.fillHeight: true
-                title: "ComboBoxes"
-                ColumnLayout {
-                    anchors.fill: parent
-                    ComboBox {model: ["Normal", "Second", "Third"]; Layout.fillWidth: true}
-                    ComboBox {model: ["Flat", "Second", "Third"]; Layout.fillWidth: true; flat: true}
-                    ComboBox {model: ["Editable", "Second", "Third"]; Layout.fillWidth: true; editable: true}
-                    ComboBox {
-                        model: 10
-                        editable: true
-                        validator: IntValidator {top: 9; bottom: 0}
-                        Layout.fillWidth: true
-                    }
-                }
-            }
-            GroupBox {
-                Layout.fillWidth: true; Layout.fillHeight: true
+            CellBox {
                 title: "Spin Boxes"
                 ColumnLayout {
                     anchors.fill: parent
-                    SpinBox {value: 50; editable: true}
+                    SpinBox {value: 50; editable: true; Layout.fillWidth: true}
                     SpinBox {
                         from: 0
                         to: items.length - 1
@@ -242,6 +219,7 @@ ApplicationWindow {
                                     return i
                             return sb.value
                         }
+                        Layout.fillWidth: true
                     }
                     SpinBox {
                         id: doubleSpinbox
@@ -262,7 +240,64 @@ ApplicationWindow {
                         valueFromText: function(text, locale) {
                             return Number.fromLocaleString(locale, text) * 100
                         }
+                        Layout.fillWidth: true
                     }
+                }
+            }
+            CellBox {
+                title: "Text Inputs"
+                Column {
+                    // ScrollView will not work if we use ColumnLayout as
+                    // ColumnLayout always measures its size depending on its
+                    // contents.
+                    anchors.fill: parent
+                    spacing: 10
+                    TextField {
+                        width: parent.width
+                        placeholderText: "Enter something here..."
+                        selectByMouse: true
+                    }
+                    TextField {
+                        width: parent.width
+                        text: "read only"
+                        readOnly: true
+                    }
+                    ScrollView {
+                        width: parent.width
+                        height: parent.height - y
+                        TextArea {
+                            placeholderText: "Multi-line text editor..."
+                            selectByMouse: true
+                            persistentSelection: true
+                        }
+                    }
+                }
+            }
+            CellBox {
+                Layout.rowSpan: 2; Layout.minimumWidth: 500
+                title: "Tabs"
+                Layout.preferredWidth: height // Keep the ratio right!
+                TabBar {
+                    id: bar
+                    width: parent.width
+                    TabButton {text: "A"}
+                    TabButton {text: "B"}
+                    TabButton {text: "C"}
+                }
+                StackLayout {
+                    width: parent.width
+                    height: parent.height - y
+                    anchors.top: bar.bottom
+                    currentIndex: bar.currentIndex
+                    LargeChartView {
+                        PieSeries {
+                            PieSlice {label: "eaten"; value: 74.7}
+                            PieSlice {label: "not yet eaten"; value: 5.1}
+                            PieSlice {label: "wut?"; value: 20.2}
+                        }
+                    }
+                    Label {padding: 10; text: "Page B"}
+                    Label {padding: 10; text: "Page C"}
                 }
             }
             Popup {
