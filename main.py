@@ -8,7 +8,7 @@ from PyQt5.QtQml import QQmlApplicationEngine
 
 def main():
     # Set the QtQuick Style
-    # Acceptable values: Default, Fusion, Imagine, Material, Universal
+    # Acceptable values: Default, Fusion, Imagine, Material, Universal.
     os.environ['QT_QUICK_CONTROLS_STYLE'] = 'Universal'
 
     # Create an instance of the application
