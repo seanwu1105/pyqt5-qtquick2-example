@@ -1,15 +1,24 @@
-image: python:3.6
-
-before_script:
-  - python3 -m pip install -r requirements.txt
-
 pylint:
+  image: python:3.6
   script:
+    - python3 -m pip install -r requirements.txt
     - python3 -m pip install pylint
     - pylint --errors-only pyqt5_qtquick2_example/
 
-release:
+release-linux:
   stage: deploy
+  image: python:3.6
+  script:
+    - pyrcc5 -o pyqt5_qtquick2_example/resources.py resources.qrc
+    - pyinstaller main.py -y --windowed --onefile --hidden-import PyQt5.sip --hidden-import PyQt5.QtQuick --hidden-import PyQt5.QtChart --additional-hooks-dir pyi_hooks/
+  artifacts:
+    name: "$CI_JOB_NAME-$CI_COMMIT_REF_NAME"
+    paths:
+      - dist/
+
+release-windows:
+  stage: deploy
+  image: python:3.6-windowsservercore-ltsc2016
   script:
     - pyrcc5 -o pyqt5_qtquick2_example/resources.py resources.qrc
     - pyinstaller main.py -y --windowed --onefile --hidden-import PyQt5.sip --hidden-import PyQt5.QtQuick --hidden-import PyQt5.QtChart --additional-hooks-dir pyi_hooks/
