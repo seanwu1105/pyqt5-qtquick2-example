@@ -1,2 +1,2 @@
 pyqt5>5.11
-pyinstaller=3.3.1
+pyinstaller==3.3.1
