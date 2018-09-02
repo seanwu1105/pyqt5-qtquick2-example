@@ -15,4 +15,5 @@ release:
     - pyinstaller main.py -y --windowed --onefile --hidden-import PyQt5.sip --hidden-import PyQt5.QtQuick --hidden-import PyQt5.QtChart --additional-hooks-dir pyi_hooks/
   artifacts:
     name: "$CI_JOB_NAME-$CI_COMMIT_REF_NAME"
-    paths: "dist/"
+    paths:
+      - dist/
