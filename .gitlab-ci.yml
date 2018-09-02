@@ -1,7 +1,10 @@
+before-script:
+  - python3 -m pip install -r requirements.txt
+
 pylint:
   image: python:3.6
   script:
-    - python3 -m pip install -r requirements.txt
+
     - python3 -m pip install pylint
     - pylint --errors-only pyqt5_qtquick2_example/
 
