@@ -29,7 +29,8 @@ dirs = ['Qt',
         'QtQuick.2',
         #'QtSensors',
         #'QtTest',
-        'QtCharts'
+        'QtCharts',
+        'QtGraphicalEffects'
         ]
 
 qmldir = qt5_qml_dir('PyQt5')
