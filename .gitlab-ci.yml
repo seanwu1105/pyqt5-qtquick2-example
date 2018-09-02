@@ -6,7 +6,7 @@ before_script:
 pylint:
   script:
     - python3 -m pip install pylint
-    - pylint --errors-only project_name/
+    - pylint --errors-only pyqt5_qtquick2_example/
 
 package:
   stage: deploy
