@@ -2,6 +2,16 @@
 
 ## Themes
 
+Run `main.py` with theme names as second parameter.
+
+``` bash
+python main.py Default
+python main.py Fusion
+python main.py Imagine
+python main.py Material
+python main.py Universal
+```
+
 Change environmental variable `QT_QUICK_CONTROLS_STYLE` in `main.py`.
 
 ``` python
@@ -47,6 +57,8 @@ os.environ['QT_QUICK_CONTROLS_STYLE'] = 'Default'
 ![Material (Dark)](https://i.imgur.com/QN8YUZW.png)
 
 ## Packaging for Distribution with PyInstaller
+
+> `.qrc` files must be located in the same directory with the python file which will load the resource in qrc.
 
 ## Dependencies
 

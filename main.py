@@ -4,12 +4,13 @@ import sys
 from PyQt5.QtCore import QUrl, QObject
 from PyQt5.QtWidgets import QApplication
 from PyQt5.QtQml import QQmlApplicationEngine
+from pyqt5_qtquick2_example import resources # load resources built by pyrcc5
 
 
 def main():
     # Set the QtQuick Style
     # Acceptable values: Default, Fusion, Imagine, Material, Universal.
-    os.environ['QT_QUICK_CONTROLS_STYLE'] = 'Universal'
+    os.environ['QT_QUICK_CONTROLS_STYLE'] = sys.argv[1] if len(sys.argv) > 1 else "Default"
 
     # Create an instance of the application
     # QApplication MUST be declared in global scope to avoid segmentation fault
@@ -19,7 +20,7 @@ def main():
     engine = QQmlApplicationEngine()
 
     # Load the qml file into the engine
-    engine.load(QUrl('pyqt5_qtquick2_example/qml/main.qml'))
+    engine.load(QUrl('qrc:/pyqt5_qtquick2_example/qml/main.qml'))
 
     # Qml file error handling
     if not engine.rootObjects():
