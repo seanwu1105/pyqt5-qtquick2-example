@@ -1,4 +1,4 @@
-before-script:
+before_script:
   - python3 -m pip install -r requirements.txt
 
 pylint:
@@ -7,7 +7,7 @@ pylint:
     - python3 -m pip install pylint
     - pylint --errors-only pyqt5_qtquick2_example/
 
-release-linux:
+release_linux:
   stage: deploy
   image: python:3.6
   script:
@@ -18,7 +18,7 @@ release-linux:
     paths:
       - dist/
 
-release-windows:
+release_windows:
   stage: deploy
   image: python:3.6-windowsservercore-ltsc2016
   script:
