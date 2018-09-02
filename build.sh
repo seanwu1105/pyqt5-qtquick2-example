@@ -1,2 +1,0 @@
-pyrcc5 -o pyqt5_qtquick2_example/resources.py resources.qrc
-pyinstaller main.py -y --windowed --onefile --hidden-import PyQt5.sip --hidden-import PyQt5.QtQuick --hidden-import PyQt5.QtChart --additional-hooks-dir pyi_hooks/

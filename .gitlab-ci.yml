@@ -1,0 +1,15 @@
+image: python:3.6
+
+before_script:
+  - python3 -m pip install -r requirements.txt
+
+package:
+  stage: build
+  script:
+    - pyrcc5 -o pyqt5_qtquick2_example/resources.py resources.qrc
+    - pyinstaller main.py -y --windowed --onefile --hidden-import PyQt5.sip --hidden-import PyQt5.QtQuick --hidden-import PyQt5.QtChart --additional-hooks-dir pyi_hooks/
+  
+pylint:
+  script:
+    - python3 -m pip install pylint
+    - pylint --errors-only project_name/
