@@ -63,7 +63,20 @@ os.environ['QT_QUICK_CONTROLS_STYLE'] = 'Default'
 
 ## Packaging for Distribution with PyInstaller
 
+You could download the latest binary distribution here (Linux 64bit):
+
+[![Linux Release link](https://img.shields.io/badge/download-linux--64bit-brightgreen.svg)](https://gitlab.com/GLaDOS1105/pyqt5-qtquick2-example/-/jobs/artifacts/master/browse?job=release)
+
+Package the source code manually:
+
+``` bash
+pyrcc5 -o pyqt5_qtquick2_example/resources.py resources.qrc
+pyinstaller main.py -y --windowed --onefile --hidden-import PyQt5.sip --hidden-import PyQt5.QtQuick --hidden-import PyQt5.QtChart --additional-hooks-dir pyi_hooks/
+```
+
 > `.qrc` files must be located in the same directory with the python file which will load the resource in qrc.
+
+> WARNING: `Pyinstaller==3.3.1` has some minor errors for the Material and Imagine themes. You could use the [latest (unstable) pre-release Pyinstaller (`3.4`)](https://codeload.github.com/pyinstaller/pyinstaller/zip/develop) to fix these problems. Yet, the hook files in [`pyi_hooks`](/pyi_hooks) require minor changes for the update.
 
 ## Dependencies
 
@@ -71,6 +84,12 @@ PyQt5
 
 ``` bash
 pip install pyqt5
+```
+
+PyQtChart
+
+``` bash
+pip install pyqtchart
 ```
 
 Pyinstaller (only for packaging)
