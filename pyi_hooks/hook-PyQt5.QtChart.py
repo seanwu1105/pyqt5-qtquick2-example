@@ -8,9 +8,7 @@
 #-----------------------------------------------------------------------------
 
 
-hiddenimports = ['PyQt5.sip',
-                 'PyQt5.QtQuick'
-                ]
+hiddenimports = ['PyQt5.QtQuick']
 
 from PyInstaller.utils.hooks import (
     qt5_qml_dir,
@@ -20,16 +18,7 @@ from PyInstaller.utils.hooks import (
 )
 
 # TODO: we should parse the Qml files to see what we need to import.
-dirs = ['Qt',
-        #'QtAudioEngine',
-        #'QtGraphicalEffects',
-        #'QtMultiMedia',
-        'QtQml',
-        'QtQuick',
-        'QtQuick.2',
-        #'QtSensors',
-        #'QtTest',
-        'QtCharts',
+dirs = ['QtCharts',
         'QtGraphicalEffects'
         ]
 
