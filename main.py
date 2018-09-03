@@ -38,7 +38,7 @@ def main():
 
     res = app.exec_()
     # Deleting the view before it goes out of scope is required to make sure all
-    # child QML instances are destroyed in the correct order, or an segmentation
+    # child QML instances are destroyed in the correct order or a segmentation
     # error would occur.
     del engine
     sys.exit(res)

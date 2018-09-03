@@ -71,7 +71,7 @@ Package the source code manually:
 
 ``` bash
 pyrcc5 -o pyqt5_qtquick2_example/resources.py resources.qrc
-pyinstaller main.py -y --windowed --onefile --hidden-import PyQt5.sip --hidden-import PyQt5.QtQuick --hidden-import PyQt5.QtChart --additional-hooks-dir pyi_hooks/
+pyinstaller main.py -y --windowed --additional-hooks-dir pyi_hooks/
 ```
 
 > `.qrc` files must be located in the same directory with the python file which will load the resource in qrc.
