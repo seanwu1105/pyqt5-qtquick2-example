@@ -17,14 +17,3 @@ release_linux:
     name: "$CI_JOB_NAME-$CI_COMMIT_REF_NAME"
     paths:
       - dist/
-
-release_windows:
-  stage: deploy
-  image: cdrx/pyinstaller-windows
-  script:
-    - pyrcc5 -o pyqt5_qtquick2_example/resources.py resources.qrc
-    - pyinstaller main.py -y --windowed --onefile --hidden-import PyQt5.sip --hidden-import PyQt5.QtQuick --hidden-import PyQt5.QtChart --additional-hooks-dir pyi_hooks/
-  artifacts:
-    name: "$CI_JOB_NAME-$CI_COMMIT_REF_NAME"
-    paths:
-      - dist/
