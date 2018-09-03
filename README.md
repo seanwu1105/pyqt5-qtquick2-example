@@ -69,12 +69,12 @@ You could download the latest binary distribution here (Linux 64bit):
 
 Package the source code manually:
 
+> `.qrc` files must be located in the same directory with the python file which will load the resource in qrc.
+
 ``` bash
 pyrcc5 -o pyqt5_qtquick2_example/resources.py resources.qrc
 pyinstaller main.py -y --windowed --additional-hooks-dir pyi_hooks/
 ```
-
-> `.qrc` files must be located in the same directory with the python file which will load the resource in qrc.
 
 > WARNING: `Pyinstaller==3.3.1` has some minor errors for the Material and Imagine themes. You could use the [latest (unstable) pre-release Pyinstaller (`3.4`)](https://codeload.github.com/pyinstaller/pyinstaller/zip/develop) to fix these problems. Yet, the hook files in [`pyi_hooks`](/pyi_hooks) require minor changes for the update.
 
