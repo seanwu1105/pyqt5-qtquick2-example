@@ -12,7 +12,7 @@ release_linux:
   image: python:3.6
   script:
     - pyrcc5 -o pyqt5_qtquick2_example/resources.py resources.qrc
-    - pyinstaller main.py -y --windowed --additional-hooks-dir pyi_hooks/
+    - pyinstaller main.py -y --onefile --windowed --additional-hooks-dir pyi_hooks/
   artifacts:
     name: "$CI_JOB_NAME-$CI_COMMIT_REF_NAME"
     paths:

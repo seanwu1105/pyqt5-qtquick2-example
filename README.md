@@ -3,7 +3,7 @@
 [![pipeline status](https://gitlab.com/GLaDOS1105/pyqt5-qtquick2-example/badges/master/pipeline.svg)](https://gitlab.com/GLaDOS1105/pyqt5-qtquick2-example/commits/master)
 [![coverage report](https://gitlab.com/GLaDOS1105/pyqt5-qtquick2-example/badges/master/coverage.svg)](https://gitlab.com/GLaDOS1105/pyqt5-qtquick2-example/commits/master)
 [![Requirements Status](https://requires.io/github/GLaDOS1105/pyqt5-qtquick2-example/requirements.svg?branch=master)](https://requires.io/github/GLaDOS1105/pyqt5-qtquick2-example/requirements/?branch=master)
-[![Linux Release link](https://img.shields.io/badge/download-linux--64bit-brightgreen.svg)](https://gitlab.com/GLaDOS1105/pyqt5-qtquick2-example/-/jobs/artifacts/master/browse?job=release)
+[![Linux Release link](https://img.shields.io/badge/download-linux--64bit-brightgreen.svg)](https://gitlab.com/GLaDOS1105/pyqt5-qtquick2-example/-/jobs/artifacts/master/browse?job=release_linux)
 
 ## Themes
 
@@ -76,7 +76,7 @@ pyrcc5 -o pyqt5_qtquick2_example/resources.py resources.qrc
 pyinstaller main.py -y --windowed --additional-hooks-dir pyi_hooks/
 ```
 
-> WARNING: `Pyinstaller==3.3.1` has some minor errors for the Material and Imagine themes. You could use the [latest (unstable) pre-release Pyinstaller (`3.4`)](https://codeload.github.com/pyinstaller/pyinstaller/zip/develop) to fix these problems. Yet, the hook files in [`pyi_hooks`](/pyi_hooks) require minor changes for the update.
+> WARNING: `Pyinstaller==3.3.1` has some minor errors for the Material and Imagine themes in Linux. You could use the [latest (unstable) pre-release Pyinstaller (`3.4`)](https://codeload.github.com/pyinstaller/pyinstaller/zip/develop) to fix these problems. Yet, the hook files in [`pyi_hooks`](/pyi_hooks) require minor changes for the update. However, in Windows platform, the packaging process and the binary distribution are completely perfect.
 
 ## Dependencies
 
