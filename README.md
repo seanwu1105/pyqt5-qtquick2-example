@@ -5,11 +5,13 @@
 [![Requirements Status](https://requires.io/github/seanwu1105/pyqt5-qtquick2-example/requirements.svg?branch=master)](https://requires.io/github/seanwu1105/pyqt5-qtquick2-example/requirements/?branch=master)
 [![Linux Release link](https://img.shields.io/badge/download-linux--64bit-brightgreen.svg)](https://gitlab.com/seanwu1105/pyqt5-qtquick2-example/-/jobs/artifacts/master/browse?job=release_linux)
 
+> **NOTE**: A better practice for communication between front-end (QML) and back-end (Python) can be found in [neural-network-sandbox](https://github.com/seanwu1105/pyqt5-qtquick2-example) repository.
+
 ## Themes
 
 Run `main.py` with theme names as second parameter.
 
-``` bash
+``` sh
 python main.py Default
 python main.py Fusion
 python main.py Imagine
@@ -71,29 +73,7 @@ Package the source code manually:
 
 > `.qrc` files must be located in the same directory with the python file which will load the resource in qrc.
 
-``` bash
+``` sh
 pyrcc5 -o pyqt5_qtquick2_example/resources.py resources.qrc
 pyinstaller main.py -y --windowed --additional-hooks-dir pyi_hooks/
-```
-
-> WARNING: `Pyinstaller==3.3.1` has some minor errors for the Material and Imagine themes in Linux. You could use the [latest (unstable) pre-release Pyinstaller (`3.4`)](https://codeload.github.com/pyinstaller/pyinstaller/zip/develop) to fix these problems. Yet, the hook files in [`pyi_hooks`](/pyi_hooks) require minor changes for the update. However, in Windows platform, the packaging process and the binary distribution are completely perfect.
-
-## Dependencies
-
-PyQt5
-
-``` bash
-pip install pyqt5
-```
-
-PyQtChart
-
-``` bash
-pip install pyqtchart
-```
-
-Pyinstaller (only for packaging)
-
-``` bash
-pip install pyinstaller
 ```
