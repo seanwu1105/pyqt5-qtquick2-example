@@ -1,5 +1,6 @@
 # Example of QtQuick 2 with PyQt5
 
+[![build](https://github.com/seanwu1105/pyqt5-qtquick2-example/workflows/build/badge.svg)](https://github.com/seanwu1105/pyqt5-qtquick2-example/actions?query=workflow%3Abuild)
 [![Requirements Status](https://requires.io/github/seanwu1105/pyqt5-qtquick2-example/requirements.svg?branch=master)](https://requires.io/github/seanwu1105/pyqt5-qtquick2-example/requirements/?branch=master)
 
 > **NOTE**: A better practice for communication between front-end (QML) and back-end (Python) can be found in [neural-network-sandbox](https://github.com/seanwu1105/neural-network-sandbox) repository.
