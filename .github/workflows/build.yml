@@ -1,0 +1,25 @@
+name: build
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python 3.6
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.6
+    - name: Install dependencies
+      run: |
+        python3 -m pip install --upgrade pip
+        python3 -m pip install pylint
+        python3 -m pip install -r requirements.txt
+    - name: Lint
+      run: |
+        pylint --errors-only pyqt5_qtquick2_example/
+    - name: Build release executable
+      run: |
+        pyrcc5 -o pyqt5_qtquick2_example/resources.py resources.qrc
+        pyinstaller main.py -y --onefile --windowed

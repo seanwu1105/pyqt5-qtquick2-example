@@ -1,9 +1,6 @@
 # Example of QtQuick 2 with PyQt5
 
-[![pipeline status](https://gitlab.com/seanwu1105/pyqt5-qtquick2-example/badges/master/pipeline.svg)](https://gitlab.com/seanwu1105/pyqt5-qtquick2-example/commits/master)
-[![coverage report](https://gitlab.com/seanwu1105/pyqt5-qtquick2-example/badges/master/coverage.svg)](https://gitlab.com/seanwu1105/pyqt5-qtquick2-example/commits/master)
 [![Requirements Status](https://requires.io/github/seanwu1105/pyqt5-qtquick2-example/requirements.svg?branch=master)](https://requires.io/github/seanwu1105/pyqt5-qtquick2-example/requirements/?branch=master)
-[![Linux Release link](https://img.shields.io/badge/download-linux--64bit-brightgreen.svg)](https://gitlab.com/seanwu1105/pyqt5-qtquick2-example/-/jobs/artifacts/master/browse?job=release_linux)
 
 > **NOTE**: A better practice for communication between front-end (QML) and back-end (Python) can be found in [neural-network-sandbox](https://github.com/seanwu1105/neural-network-sandbox) repository.
 
