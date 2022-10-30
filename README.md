@@ -3,6 +3,7 @@
 [![build](https://github.com/seanwu1105/pyqt5-qtquick2-example/workflows/build/badge.svg)](https://github.com/seanwu1105/pyqt5-qtquick2-example/actions?query=workflow%3Abuild)
 
 > **NOTE**: ~~A better practice for communication between front-end (QML) and back-end (Python) can be found in [neural-network-sandbox](https://github.com/seanwu1105/neural-network-sandbox) repository.~~
+
 > **NOTE**: For modern UI framework for Python, use PySide6 with [Visual Studio Code Extension](https://github.com/seanwu1105/vscode-qt-for-python) or Qt Creator for the best experience.
 
 ## Themes
